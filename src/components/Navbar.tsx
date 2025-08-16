@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TbGolf } from "react-icons/tb";
+import { GiBeveledStar } from "react-icons/gi";
 
 const Navbar: React.FC = () => {
   const [language, setLanguage] = useState<"ENG" | "FRA">("ENG");
@@ -9,7 +10,12 @@ const Navbar: React.FC = () => {
       {/* Left Section → Logo + Location */}
       <div className="flex items-center gap-20">
         {/* Logo */}
-        <span className="text-2xl font-bold text-blue-600">Forge</span>
+        <span className="text-2xl font-bold text-black flex items-center gap-2">
+          <i>
+            <GiBeveledStar />
+          </i>
+          Forge
+        </span>
 
         {/* Location */}
         <div className="flex items-center gap-2 text-sm text-gray-600">
