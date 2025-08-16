@@ -26,7 +26,7 @@ export default function VideoSection() {
   return (
     <section className="relative w-full">
       {/* Top Buttons */}
-      <div className="absolute top-4 left-0 right-0 flex justify-between px-6 z-10">
+      <div className="absolute top-10 left-0 right-0 flex justify-between px-6 z-10">
         <button
           onClick={toggleSound}
           className="px-4 py-2 bg-white text-gray-800 font-semibold flex items-center gap-2 rounded-sm shadow-md hover:shadow-lg transition"
