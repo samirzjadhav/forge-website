@@ -4,6 +4,7 @@ import VideoSection from "./components/VideoSection";
 import AboutSection from "./components/About";
 import ProcessSection from "./components/Process";
 import PortfolioSection from "./components/Portfolio";
+import TouchSection from "./components/TouchSection";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <AboutSection />
       <ProcessSection />
       <PortfolioSection />
+      <TouchSection />
     </>
   );
 }
