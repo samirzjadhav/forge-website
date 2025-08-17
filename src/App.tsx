@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import VideoSection from "./components/VideoSection";
 import AboutSection from "./components/About";
+import ProcessSection from "./components/Process";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <HeroSection />
       <VideoSection />
       <AboutSection />
+      <ProcessSection />
     </>
   );
 }
