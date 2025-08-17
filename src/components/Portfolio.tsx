@@ -71,13 +71,18 @@ export default function PortfolioSection() {
   const selectedItem = portfolioItems.find((item) => item.id === selectedId);
 
   return (
-    <section className="w-full bg-black py-16 px-6">
+    <section id="tool-library" className="w-full bg-black py-16 px-6">
       <div className="max-w-7xl mx-auto flex flex-col">
         {/* Subtitle & Title */}
-        <h4 className="text-sm text-gray-400 uppercase mb-2">Portfolio</h4>
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">
-          Check Our <br /> Latest Works
+        <div className="flex mb-2">
+          <h4 className="text-xs text-white uppercase px-3 py-1 bg-blue-500 rounded-md">
+            • portfolio •
+          </h4>
+        </div>
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-2 ">
+          Check Our <br /> Latest <span className="textured-text">Works</span>
         </h2>
+
         <div className="border-b-2 border-gray-700 mb-12"></div>
 
         {/* Main Portfolio Section */}

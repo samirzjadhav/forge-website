@@ -7,3 +7,23 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
+
+.textured-text {
+  font-size: 64px; /* Adjust font size */
+  font-weight: bold; /* Make it bold for better effect */
+
+  /* Make text transparent so background shows */
+  color: transparent;
+
+  /* Clip the background to text */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Set background image */
+  background-image: url("texture1.jpeg"); /* Path to your image */
+  background-size: cover; /* Make the image cover text */
+  background-position: center; /* Center the texture */
+
+  /* Optional: Add some shadow for depth */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}

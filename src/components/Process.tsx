@@ -40,10 +40,14 @@ export default function ProcessSection() {
   return (
     <section className="w-full bg-gray-50 py-16 px-6">
       <div className="max-w-7xl mx-auto flex flex-col">
-        {/* Subtitle & Title */}
-        <h4 className="text-sm text-gray-500 uppercase mb-2">Process</h4>
-        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-12">
-          CNC Machining <br /> Made <span>Easy</span>
+        <div className="flex mb-2">
+          <h4 className="text-xs text-white uppercase px-3 py-1 bg-blue-500 rounded-md">
+            • portfolio •
+          </h4>
+        </div>
+        <h2 className="text-3xl md:text-5xl font-bold text-black mb-10 ">
+          CNC Machining
+          <br /> Made <span className="textured-text">Easy</span>
         </h2>
 
         {/* Grid */}

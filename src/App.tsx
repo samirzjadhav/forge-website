@@ -5,6 +5,8 @@ import AboutSection from "./components/About";
 import ProcessSection from "./components/Process";
 import PortfolioSection from "./components/Portfolio";
 import TouchSection from "./components/TouchSection";
+import ManufactureSection from "./components/Manufacture";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <ProcessSection />
       <PortfolioSection />
       <TouchSection />
+      <ManufactureSection />
+      <Footer />
     </>
   );
 }

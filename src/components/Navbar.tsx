@@ -26,13 +26,31 @@ const Navbar: React.FC = () => {
 
       {/* Nav Links (Center) */}
       <ul className="hidden md:flex gap-8 text-gray-700 font-medium">
-        <li className="hover:text-blue-600 cursor-pointer underline">
+        <li
+          className="hover:text-blue-600 cursor-pointer underline"
+          onClick={() => {
+            const section = document.getElementById("manufacture");
+            section?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
           Manufacture
         </li>
-        <li className="hover:text-blue-600 cursor-pointer underline">
+        <li
+          className="hover:text-blue-600 cursor-pointer underline"
+          onClick={() => {
+            const section = document.getElementById("tool-library");
+            section?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
           Tool Library
         </li>
-        <li className="hover:text-blue-600 cursor-pointer underline">
+        <li
+          className="hover:text-blue-600 cursor-pointer underline"
+          onClick={() => {
+            const section = document.getElementById("get-in-touch");
+            section?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
           Get in Touch
         </li>
       </ul>
