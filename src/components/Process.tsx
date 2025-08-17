@@ -42,18 +42,19 @@ export default function ProcessSection() {
       <div className="max-w-7xl mx-auto flex flex-col">
         <div className="flex mb-2">
           <h4 className="text-xs text-white uppercase px-3 py-1 bg-blue-500 rounded-md">
-            • portfolio •
+            • process •
           </h4>
         </div>
-        <h2 className="text-3xl md:text-5xl font-bold text-black mb-10 ">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black sm:mb-10 ">
           CNC Machining
-          <br /> Made <span className="textured-text">Easy</span>
+          <br />
+          Made <span className="textured-text ">Easy</span>
         </h2>
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1">
           {processSteps.map((step) => (
-            <div key={step.id} className="flex flex-col">
+            <div key={step.id} className="flex flex-col mt-6 md:mt-4">
               <div className="flex items-center gap-2 mb-4">
                 <i>{step.icon}</i>
                 <h3 className="text-lg font-semibold mt-2">{step.title}</h3>

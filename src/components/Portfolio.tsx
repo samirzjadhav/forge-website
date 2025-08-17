@@ -79,14 +79,14 @@ export default function PortfolioSection() {
             • portfolio •
           </h4>
         </div>
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-2 ">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2">
           Check Our <br /> Latest <span className="textured-text">Works</span>
         </h2>
 
         <div className="border-b-2 border-gray-700 mb-12"></div>
 
         {/* Main Portfolio Section */}
-        <div className="flex flex-col md:flex-row gap-40">
+        <div className="flex flex-col md:flex-row gap-10 lg:gap-40">
           {/* Left: Selected Image */}
           <div className="md:w-1/2">
             {selectedItem && (

@@ -51,10 +51,12 @@ export default function Hero() {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="text-3xl sm:text-4xl md:text-6xl font-medium text-center text-gray-900 max-w-3xl sm:max-w-4xl capitalize"
+        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center text-gray-900 max-w-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl capitalize leading-snug sm:leading-snug md:leading-tight"
       >
-        Precision <span className="textured-text">CNC</span> parts <br />
-        shipped as fast as <br /> tomorrow
+        Precision <span className="textured-text">CNC</span> parts
+        <br className="hidden sm:block" /> shipped as fast as{" "}
+        <br className="" />
+        tomorrow
       </motion.h1>
 
       {/* Responsive U Shape Slider */}

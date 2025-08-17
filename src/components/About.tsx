@@ -47,7 +47,7 @@ export default function AboutSection() {
 
   return (
     <section className="w-full bg-gray-50 py-16 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-start gap-20">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-start gap-10 lg:gap-20">
         {/* Right: CEO info */}
         <div className="md:w-1/3 flex flex-col mt-8 md:mt-10">
           <div className="flex gap-2">
@@ -65,7 +65,7 @@ export default function AboutSection() {
               </p>
             </div>
           </div>
-          <p className="text-gray-600 font-semibold mb-4">
+          <p className="text-gray-600 font-medium lg:font-semibold mb-4">
             At Forge, we believe that getting custom CNC parts should be fast,
             reliable, and effortless. That's why we built a fully streamlined
             platform that turns your CAD files into production-ready
@@ -73,7 +73,7 @@ export default function AboutSection() {
             scaling, we remove the friction from manufacturing so you can focus
             on building what matters.
           </p>
-          <p className="text-gray-600 font-semibold mb-4">
+          <p className="text-gray-600 font-medium lg:font-semibold mb-4">
             We operate high-performance CNC machines backed by in-house
             automation and a trusted network of suppliers. From one-off
             prototypes to small production runs, our system is built to deliver
@@ -81,20 +81,20 @@ export default function AboutSection() {
             own dedicated CNC machine through our RM (Reserved Machines)
             offering—your own production line, without the overhead.
           </p>
-          <p className="text-gray-800 font-semibold text-sm mt-48">
+          <p className="text-gray-800 font-semibold text-sm mt-12 lg:mt-48">
             Every detail matters—we craft each part with care, accuracy, and a
             finish that feels just right.
           </p>
         </div>
 
         {/* Left: About */}
-        <div className="md:w-2/3 flex flex-col">
+        <div className="w-full md:w-2/3 flex flex-col">
           <div className="flex mb-2">
             <h4 className="text-xs text-white uppercase px-3 py-1 bg-blue-500 rounded-md">
               • about •
             </h4>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-10">
             Revolutionizing <br /> Manufacturing With <br />
             Speed And <span className="textured-text">Precision</span>
           </h2>

@@ -9,7 +9,7 @@ body {
 }
 
 .textured-text {
-  font-size: 64px; /* Adjust font size */
+  font-size: 90px; /* Adjust font size */
   font-weight: bold; /* Make it bold for better effect */
 
   /* Make text transparent so background shows */
@@ -26,4 +26,25 @@ body {
 
   /* Optional: Add some shadow for depth */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .textured-text {
+    font-size: 60px;
+  }
+}
+
+/* Small tablets / large mobiles */
+@media (max-width: 768px) {
+  .textured-text {
+    font-size: 45px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .textured-text {
+    font-size: 36px;
+  }
 }
