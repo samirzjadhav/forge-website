@@ -46,22 +46,23 @@ This is a responsive website built with **React.js** and **Tailwind CSS**, desig
 ## 📦 Installation
 
 1. Clone the repository
+
    ```bash
    git clone https://github.com/samirzjadhav/forge-website.git
    ```
-
-````
 
 2. Navigate to the project folder
 
    ```bash
    cd cnc-machining-website
    ```
+
 3. Install dependencies
 
    ```bash
    npm install
    ```
+
 4. Run the development server
 
    ```bash
@@ -72,7 +73,7 @@ This is a responsive website built with **React.js** and **Tailwind CSS**, desig
 
 ## 🌐 Live Demo
 
-[Click Here](#) *(Add your deployed link when available)*
+[Click Here](#) _(Add your deployed link when available)_
 
 ---
 
@@ -93,4 +94,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 This project is licensed under the **MIT License**.
 
 ```
-````
+
+```
