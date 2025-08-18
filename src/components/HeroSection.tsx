@@ -1,6 +1,6 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { OrbitControls, useGLTF, Environment } from "@react-three/drei";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
-// EngineModel with dynamic scaling
+// EngineModel with EXR environment texture
 function EngineModel({ path }: { path: string }) {
   const { scene } = useGLTF(path);
   const ref = useRef<THREE.Group>(null);
@@ -27,9 +27,12 @@ function EngineModel({ path }: { path: string }) {
 
   useEffect(() => {
     if (!ref.current) return;
+    ref.current.clear(); // clear old children
+
     const clonedScene = scene.clone();
     ref.current.add(clonedScene);
 
+    // Compute bounding box for scaling
     const box = new THREE.Box3().setFromObject(clonedScene);
     const size = new THREE.Vector3();
     box.getSize(size);
@@ -39,7 +42,12 @@ function EngineModel({ path }: { path: string }) {
     clonedScene.position.set(0, (-size.y * scale) / 2, 0);
   }, [scene, scaleFactor]);
 
-  return <group ref={ref} />;
+  return (
+    <group ref={ref}>
+      {/* Add environment texture */}
+      <Environment files="/forest.exr" background={false} />
+    </group>
+  );
 }
 
 export default function Hero() {
@@ -52,7 +60,7 @@ export default function Hero() {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}
-      viewport={{ once: true, amount: 0.3 }} // only animate once, when 30% visible
+      viewport={{ once: true, amount: 0.3 }}
     >
       {/* Heading */}
       <motion.h1
@@ -63,12 +71,10 @@ export default function Hero() {
         className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center text-gray-900 max-w-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl capitalize leading-snug sm:leading-snug md:leading-tight"
       >
         Precision <span className="textured-text">CNC</span> parts
-        <br className="hidden sm:block" /> shipped as fast as{" "}
-        <br className="" />
-        tomorrow
+        <br className="hidden sm:block" /> shipped as fast as <br /> tomorrow
       </motion.h1>
 
-      {/* Responsive U Shape Slider */}
+      {/* U Shape Slider */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
