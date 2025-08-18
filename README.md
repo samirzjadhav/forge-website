@@ -1,69 +1,96 @@
-# React + TypeScript + Vite
+# CNC Machining Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a responsive website built with **React.js** and **Tailwind CSS**, designed to showcase CNC machining services and make it easy for users to interact with features like drag & drop design uploads.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 📱 **Responsive UI** (mobile, tablet, and desktop support)
+- ⚡ **Built with TypeScript** for type safety and maintainability
+- 🖼️ CNC machining service details with images & animations
+- 🎨 Modern UI with **Framer Motion animations**
+- 📂 Interactive **Drag & Drop 3D design upload** card
+- 🌀 3D model viewer using **React Three Fiber + Drei**
+- 🎭 Swiper-based slider with custom animations
+- 🌙 Tailwind CSS for fast and scalable styling
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **React.js + TypeScript** – Frontend framework with type safety
+- **Tailwind CSS** – Utility-first CSS framework
+- **Framer Motion** – Smooth animations
+- **React Three Fiber (R3F)** – 3D rendering
+- **Drei** – Helper components for R3F
+- **Swiper.js** – Modern slider for 3D previews
+- **JavaScript (ES6+)**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 📂 Project Structure
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+/src
+├── components    # Reusable UI components
+├── assets        # Images and media
+├── App.js        # Main app entry
+└── index.js      # React DOM render
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+
+---
+
+## 📦 Installation
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/samirzjadhav/forge-website.git
+   ```
+
+````
+
+2. Navigate to the project folder
+
+   ```bash
+   cd cnc-machining-website
+   ```
+3. Install dependencies
+
+   ```bash
+   npm install
+   ```
+4. Run the development server
+
+   ```bash
+   npm start
+   ```
+
+---
+
+## 🌐 Live Demo
+
+[Click Here](#) *(Add your deployed link when available)*
+
+---
+
+## 📸 Screenshots
+
+![Demo](public/demo.png)
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+```
+````
