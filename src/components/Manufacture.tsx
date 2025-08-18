@@ -57,31 +57,27 @@ const manufactureCards = [
   },
 ];
 
-export default function ManufactureSection() {
+const ManufactureSection = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
-
   const [showSecondBatch, setShowSecondBatch] = useState(false);
   const [cardsToShow, setCardsToShow] = useState(3);
 
-  // Detect scroll for batch
   const handleScroll = () => {
     if (!sectionRef.current) return;
     const { bottom } = sectionRef.current.getBoundingClientRect();
-    if (bottom <= window.innerHeight) setShowSecondBatch(true);
-    else setShowSecondBatch(false);
+    setShowSecondBatch(bottom <= window.innerHeight);
   };
 
-  // Detect screen size to determine how many cards to show
   const handleResize = () => {
     if (window.innerWidth < 640) setCardsToShow(1); // mobile
     else if (window.innerWidth < 768) setCardsToShow(2); // tablet
-    else setCardsToShow(3); // desktop/large
+    else setCardsToShow(3); // desktop
   };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
-    handleResize(); // initial check
+    handleResize();
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
@@ -95,8 +91,6 @@ export default function ManufactureSection() {
   return (
     <section ref={sectionRef} id="manufacture" className="w-full py-16 px-6">
       <div className="max-w-7xl mx-auto flex flex-col items-center">
-        {/* Subtitle & Title */}
-        {/* Subtitle */}
         <motion.h4
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +101,6 @@ export default function ManufactureSection() {
           • Manufacture •
         </motion.h4>
 
-        {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -119,7 +112,6 @@ export default function ManufactureSection() {
           We Produce
         </motion.h2>
 
-        {/* Cards container */}
         <div className="relative w-full flex flex-col sm:flex-row md:flex-row md:justify-between gap-8 h-auto md:h-[500px]">
           <AnimatePresence mode="wait">
             {displayedCards.map((card, idx) => (
@@ -131,15 +123,13 @@ export default function ManufactureSection() {
         card.title
           ? "border border-gray-300 bg-[#e3f4fd]"
           : "relative bg-blue-600 overflow-hidden text-white"
-      }
-    `}
+      }`}
                 style={{ left: `${idx * 33.33}%` }}
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -100 }}
                 transition={{ duration: 3, delay: idx * 0.5, ease: "easeOut" }}
               >
-                {/* Special last card (blue with image + overlay text) */}
                 {!card.title ? (
                   <div className="relative w-full h-60 md:h-full flex items-center justify-center">
                     <img
@@ -161,8 +151,6 @@ export default function ManufactureSection() {
                       <span className="text-2xl">→</span>
                     </div>
                     <div className="border-b border-black"></div>
-
-                    {/* Render props dynamically */}
                     {Object.entries(card).map(([key, value]) => {
                       if (["id", "title", "image"].includes(key)) return null;
                       return (
@@ -174,7 +162,6 @@ export default function ManufactureSection() {
                         </p>
                       );
                     })}
-
                     <img
                       src={card.image}
                       alt={card.title}
@@ -187,11 +174,12 @@ export default function ManufactureSection() {
           </AnimatePresence>
         </div>
 
-        {/* Mobile scroll hint */}
         <p className="mt-8 text-gray-500 text-sm md:hidden">
           Scroll to see more cards
         </p>
       </div>
     </section>
   );
-}
+};
+
+export default ManufactureSection;

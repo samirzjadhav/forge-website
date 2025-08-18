@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function CenterSection() {
+const TouchSection = () => {
   return (
     <section id="get-in-touch" className="w-full bg-blue-600 py-16 px-6">
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center text-white">
@@ -94,4 +94,5 @@ export default function CenterSection() {
       </div>
     </section>
   );
-}
+};
+export default TouchSection;

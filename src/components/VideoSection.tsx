@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { BsSoundwave } from "react-icons/bs";
 import { MdArrowOutward } from "react-icons/md";
 
-export default function VideoSection() {
+const VideoSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
   const [playing, setPlaying] = useState(true);
@@ -66,4 +66,5 @@ export default function VideoSection() {
       </button>
     </section>
   );
-}
+};
+export default VideoSection;

@@ -41,20 +41,19 @@ const items = [
   },
 ];
 
-export default function AboutSection() {
+const AboutSection = () => {
   const [selectedId, setSelectedId] = useState(1);
   const selectedItem = items.find((item) => item.id === selectedId);
 
   return (
     <motion.section
       className="w-full bg-gray-50 py-16 px-6"
-      initial={{ opacity: 0, y: 50 }} // start hidden + slightly lower
-      whileInView={{ opacity: 1, y: 0 }} // animate when in viewport
-      transition={{ duration: 1.2, ease: "easeOut" }} // slow smooth animation
-      viewport={{ once: true, amount: 0.2 }} // trigger only once, 20% visible
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-start gap-10 lg:gap-20">
-        {/* Right: CEO info */}
         <div className="md:w-1/3 flex flex-col mt-8 md:mt-10">
           <div className="flex gap-2">
             <img
@@ -93,7 +92,6 @@ export default function AboutSection() {
           </p>
         </div>
 
-        {/* Left: About */}
         <div className="w-full md:w-2/3 flex flex-col">
           <div className="flex mb-2">
             <h4 className="text-xs text-white uppercase px-3 py-1 bg-blue-500 rounded-md">
@@ -105,7 +103,6 @@ export default function AboutSection() {
             Speed And <span className="textured-text">Precision</span>
           </h2>
 
-          {/* List */}
           <ul className="flex flex-col gap-4 mb-6">
             {items.map((item) => (
               <li
@@ -133,13 +130,11 @@ export default function AboutSection() {
                   )}
                   <span className="font-medium">{item.title}</span>
                 </div>
-
                 <div className="flex items-center gap-2">{item.icon}</div>
               </li>
             ))}
           </ul>
 
-          {/* Smooth fade image */}
           <div className="w-full h-64 relative rounded-lg overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.img
@@ -150,7 +145,7 @@ export default function AboutSection() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 1.2 }} // slower fade
+                transition={{ duration: 1.2 }}
               />
             </AnimatePresence>
           </div>
@@ -158,4 +153,6 @@ export default function AboutSection() {
       </div>
     </motion.section>
   );
-}
+};
+
+export default AboutSection;

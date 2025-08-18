@@ -38,7 +38,6 @@ const processSteps = [
 ];
 
 // Reusable fade-up animation
-// Reusable fade-up animation
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
@@ -47,12 +46,12 @@ const fadeUp = {
     transition: {
       duration: 0.6,
       delay: i * 0.2,
-      ease: easeOut, // ✅ correct type
+      ease: easeOut,
     },
   }),
 };
 
-export default function ProcessSection() {
+const ProcessSection = () => {
   return (
     <section className="w-full bg-gray-50 py-16 px-6">
       <div className="max-w-7xl mx-auto flex flex-col">
@@ -93,11 +92,11 @@ export default function ProcessSection() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
               variants={fadeUp}
-              custom={i + 2} // start after title animations
+              custom={i + 2}
               className="flex flex-col mt-6 md:mt-4"
             >
               <div className="flex items-center gap-2 mb-4">
-                <i>{step.icon}</i>
+                {step.icon}
                 <h3 className="text-lg font-semibold mt-2">{step.title}</h3>
               </div>
               <p className="text-gray-600 mb-4">{step.description}</p>
@@ -112,4 +111,6 @@ export default function ProcessSection() {
       </div>
     </section>
   );
-}
+};
+
+export default ProcessSection;

@@ -9,7 +9,6 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import type { Swiper as SwiperType } from "swiper";
 
-// EngineModel with EXR environment texture
 function EngineModel({ path }: { path: string }) {
   const { scene } = useGLTF(path);
   const ref = useRef<THREE.Group>(null);
@@ -28,12 +27,11 @@ function EngineModel({ path }: { path: string }) {
 
   useEffect(() => {
     if (!ref.current) return;
-    ref.current.clear(); // clear old children
+    ref.current.clear();
 
     const clonedScene = scene.clone();
     ref.current.add(clonedScene);
 
-    // Compute bounding box for scaling
     const box = new THREE.Box3().setFromObject(clonedScene);
     const size = new THREE.Vector3();
     box.getSize(size);
@@ -51,7 +49,7 @@ function EngineModel({ path }: { path: string }) {
   );
 }
 
-export default function Hero() {
+const Hero = () => {
   const models = Array(6).fill("/landing_page_motor.glb");
 
   return (
@@ -161,4 +159,5 @@ export default function Hero() {
       </motion.div>
     </motion.section>
   );
-}
+};
+export default Hero;

@@ -6,7 +6,6 @@ import {
   FaLinkedinIn,
   FaInstagram,
 } from "react-icons/fa";
-
 import type { Variants } from "framer-motion";
 
 const fadeUp: Variants = {
@@ -22,7 +21,7 @@ const fadeUp: Variants = {
   }),
 };
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-16 px-6">
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
@@ -149,4 +148,6 @@ export default function Footer() {
       </motion.div>
     </footer>
   );
-}
+};
+
+export default Footer;

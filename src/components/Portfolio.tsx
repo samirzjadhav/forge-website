@@ -66,7 +66,7 @@ const portfolioItems = [
   },
 ];
 
-export default function PortfolioSection() {
+const PortfolioSection = () => {
   const [selectedId, setSelectedId] = useState(portfolioItems[0].id);
   const selectedItem = portfolioItems.find((item) => item.id === selectedId);
 
@@ -194,4 +194,6 @@ export default function PortfolioSection() {
       </div>
     </section>
   );
-}
+};
+
+export default PortfolioSection;
