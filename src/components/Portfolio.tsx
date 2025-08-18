@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { RiBellFill } from "react-icons/ri";
 
@@ -94,8 +94,7 @@ export default function PortfolioSection() {
           viewport={{ once: true }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2"
         >
-          Check Our <br /> Latest{" "}
-          <span className="textured-text">Works</span>
+          Check Our <br /> Latest <span className="textured-text">Works</span>
         </motion.h2>
 
         <div className="border-b-2 border-gray-700 mb-12"></div>

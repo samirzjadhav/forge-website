@@ -7,6 +7,7 @@ import { Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+import type { Swiper as SwiperType } from "swiper";
 
 // EngineModel with EXR environment texture
 function EngineModel({ path }: { path: string }) {
@@ -93,14 +94,15 @@ export default function Hero() {
             640: { slidesPerView: 2, spaceBetween: 30 },
             1024: { slidesPerView: 3, spaceBetween: 50 },
           }}
-          onSetTranslate={(swiper) => {
-            swiper.slides.forEach((slideEl: any) => {
-              const progress = slideEl.progress;
+          onSetTranslate={(swiper: SwiperType) => {
+            swiper.slides.forEach((slideEl) => {
+              const el = slideEl as HTMLElement & { progress?: number };
+              const progress = el.progress ?? 0;
               const curveDepth = 120;
               const yOffset = -Math.pow(progress, 2) * curveDepth + curveDepth;
               const scale = 1 - Math.abs(progress) * 0.25;
-              slideEl.style.transform = `translateY(${yOffset}px) scale(${scale})`;
-              slideEl.style.transition = "transform 0.5s ease";
+              el.style.transform = `translateY(${yOffset}px) scale(${scale})`;
+              el.style.transition = "transform 0.5s ease";
             });
           }}
         >

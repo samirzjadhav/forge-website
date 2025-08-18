@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const manufactureCards = [
@@ -58,7 +58,8 @@ const manufactureCards = [
 ];
 
 export default function ManufactureSection() {
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+
   const [showSecondBatch, setShowSecondBatch] = useState(false);
   const [cardsToShow, setCardsToShow] = useState(3);
 

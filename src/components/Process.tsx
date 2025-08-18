@@ -1,6 +1,6 @@
 "use client";
 import { FiUpload, FiTool, FiSettings, FiPackage } from "react-icons/fi";
-import { motion } from "framer-motion";
+import { motion, easeOut } from "framer-motion";
 
 const processSteps = [
   {
@@ -38,12 +38,17 @@ const processSteps = [
 ];
 
 // Reusable fade-up animation
+// Reusable fade-up animation
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.2, ease: "easeOut" },
+    transition: {
+      duration: 0.6,
+      delay: i * 0.2,
+      ease: easeOut, // ✅ correct type
+    },
   }),
 };
 

@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { BsSoundwave } from "react-icons/bs";
 import { MdArrowOutward } from "react-icons/md";
 
