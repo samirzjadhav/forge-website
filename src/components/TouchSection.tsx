@@ -6,9 +6,10 @@ export default function CenterSection() {
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center text-white">
         {/* Icon */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
           className="mb-6"
         >
           {/* Replace with your desired icon */}
@@ -51,9 +52,10 @@ export default function CenterSection() {
 
         {/* Title */}
         <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true }}
           className="text-5xl font-semibold mb-4"
         >
           Ready to bring your details to life?
@@ -61,9 +63,10 @@ export default function CenterSection() {
 
         {/* Subtitle */}
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+          viewport={{ once: true }}
           className="text-lg mb-8 max-w-2xl mx-auto"
         >
           From prototypes to production runs, our CNC machining platform is
@@ -73,14 +76,15 @@ export default function CenterSection() {
 
         {/* Button */}
         <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+          viewport={{ once: true }}
           className="flex items-center gap-2 px-6 py-3 bg-white text-blue-600 rounded-md hover:bg-blue-100 font-semibold"
         >
           <motion.span
             initial={{ x: 0 }}
-            whileHover={{ x: -4 }} // arrow moves left on hover
+            whileHover={{ x: -4 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
             →

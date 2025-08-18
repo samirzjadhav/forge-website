@@ -46,11 +46,20 @@ export default function Hero() {
   const models = Array(6).fill("/landing_page_motor.glb");
 
   return (
-    <section className="w-full mt-[60px] md:min-h-screen flex flex-col items-center justify-between bg-gray-50 px-4 py-12">
+    <motion.section
+      id="hero"
+      className="w-full mt-[60px] md:min-h-screen flex flex-col items-center justify-between bg-gray-50 px-4 py-12"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.3 }} // only animate once, when 30% visible
+    >
+      {/* Heading */}
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+        viewport={{ once: true }}
         className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center text-gray-900 max-w-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl capitalize leading-snug sm:leading-snug md:leading-tight"
       >
         Precision <span className="textured-text">CNC</span> parts
@@ -60,17 +69,23 @@ export default function Hero() {
       </motion.h1>
 
       {/* Responsive U Shape Slider */}
-      <div className="w-full max-w-full mt-8 sm:mt-12">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
+        viewport={{ once: true }}
+        className="w-full max-w-full mt-8 sm:mt-12"
+      >
         <Swiper
           modules={[Autoplay]}
           autoplay={{ delay: 2500, disableOnInteraction: false }}
           loop={true}
           centeredSlides={true}
           spaceBetween={30}
-          slidesPerView={1} // default for small devices
+          slidesPerView={1}
           breakpoints={{
-            640: { slidesPerView: 2, spaceBetween: 30 }, // tablet
-            1024: { slidesPerView: 3, spaceBetween: 50 }, // large screens
+            640: { slidesPerView: 2, spaceBetween: 30 },
+            1024: { slidesPerView: 3, spaceBetween: 50 },
           }}
           onSetTranslate={(swiper) => {
             swiper.slides.forEach((slideEl: any) => {
@@ -100,10 +115,16 @@ export default function Hero() {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </motion.div>
 
       {/* Bottom Section */}
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 md:gap-8 w-full mt-8 sm:mt-12">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
+        viewport={{ once: true }}
+        className="flex flex-col sm:flex-row justify-between items-center gap-4 md:gap-8 w-full mt-8 sm:mt-12"
+      >
         <div className="flex flex-col items-center sm:items-start text-center sm:text-left max-w-xl">
           <div className="text-sm sm:text-base font-medium text-gray-700">
             12+ years of delivering <br /> perfect details
@@ -129,7 +150,7 @@ export default function Hero() {
         <div className="text-sm sm:text-base font-medium text-gray-800 text-center sm:text-right">
           Over 100,000 parts <br /> manufactured annually
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import {
   FaFacebookF,
   FaTwitter,
@@ -7,12 +8,28 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut", delay },
+  }),
+};
+
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-16 px-6">
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
         {/* About Section */}
-        <div className="flex flex-col gap-4">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={0.1}
+          className="flex flex-col gap-4"
+        >
           <h3 className="text-xl font-bold">CNC Manufacturing</h3>
           <p className="text-gray-400 text-sm">
             Bringing your prototypes to life with precision, speed, and scale.
@@ -33,10 +50,17 @@ export default function Footer() {
               <FaInstagram />
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {/* Quick Links */}
-        <div className="flex flex-col gap-4">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={0.2}
+          className="flex flex-col gap-4"
+        >
           <h4 className="text-lg font-semibold">Quick Links</h4>
           <a
             href="#manufacture"
@@ -62,19 +86,33 @@ export default function Footer() {
           >
             Contact
           </a>
-        </div>
+        </motion.div>
 
         {/* Contact Info */}
-        <div className="flex flex-col gap-4">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={0.3}
+          className="flex flex-col gap-4"
+        >
           <h4 className="text-lg font-semibold">Contact</h4>
           <p className="text-gray-400 text-sm">123 Industrial Road</p>
           <p className="text-gray-400 text-sm">Manufacture City, USA</p>
           <p className="text-gray-400 text-sm">Email: info@cncmfg.com</p>
           <p className="text-gray-400 text-sm">Phone: +1 (234) 567-890</p>
-        </div>
+        </motion.div>
 
         {/* Newsletter */}
-        <div className="flex flex-col gap-4">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={0.4}
+          className="flex flex-col gap-4"
+        >
           <h4 className="text-lg font-semibold">Newsletter</h4>
           <p className="text-gray-400 text-sm">
             Subscribe to get the latest updates and offers.
@@ -89,13 +127,21 @@ export default function Footer() {
               Subscribe
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      <div className="mt-12 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
+      {/* Bottom Bar */}
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        custom={0.5}
+        className="mt-12 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm"
+      >
         &copy; {new Date().getFullYear()} CNC Manufacturing. All rights
         reserved.
-      </div>
+      </motion.div>
     </footer>
   );
 }

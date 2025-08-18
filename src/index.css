@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oldenburg&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .textured-text {
-  font-size: 90px; /* Adjust font size */
+  font-size: 80px; /* Adjust font size */
   font-weight: bold; /* Make it bold for better effect */
 
   /* Make text transparent so background shows */
@@ -31,7 +31,7 @@ body {
 /* Tablet */
 @media (max-width: 1024px) {
   .textured-text {
-    font-size: 60px;
+    font-size: 56px;
   }
 }
 

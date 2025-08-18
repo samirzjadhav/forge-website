@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { PiBracketsCurlyBold } from "react-icons/pi";
 import { GiSteelwingEmblem } from "react-icons/gi";
 import { TbFidgetSpinner } from "react-icons/tb";
@@ -13,7 +13,7 @@ const items = [
     title: "Custom Bracket",
     icon: <PiBracketsCurlyBold className="w-6 h-6" />,
     image:
-      "https://images.unsplash.com/photo-1606337321936-02d1b1a4d5ef?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1606337321936-02d1b1a4d5ef?q=80&w=870&auto=format&fit=crop",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const items = [
     title: "Steel Adapter",
     icon: <GiSteelwingEmblem className="w-6 h-6" />,
     image:
-      "https://plus.unsplash.com/premium_photo-1726769088808-dab11ed65177?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1726769088808-dab11ed65177?q=80&w=1470&auto=format&fit=crop",
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const items = [
     title: "Motor Mounts",
     icon: <TbFidgetSpinner className="w-6 h-6" />,
     image:
-      "https://images.unsplash.com/photo-1527383418406-f85a3b146499?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1527383418406-f85a3b146499?q=80&w=1470&auto=format&fit=crop",
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ const items = [
     title: "Enclosures",
     icon: <FaUserCircle className="w-6 h-6" />,
     image:
-      "https://images.unsplash.com/photo-1603676554283-efe0116cbfa6?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1603676554283-efe0116cbfa6?q=80&w=1469&auto=format&fit=crop",
   },
 ];
 
@@ -46,18 +46,24 @@ export default function AboutSection() {
   const selectedItem = items.find((item) => item.id === selectedId);
 
   return (
-    <section className="w-full bg-gray-50 py-16 px-6">
+    <motion.section
+      className="w-full bg-gray-50 py-16 px-6"
+      initial={{ opacity: 0, y: 50 }} // start hidden + slightly lower
+      whileInView={{ opacity: 1, y: 0 }} // animate when in viewport
+      transition={{ duration: 1.2, ease: "easeOut" }} // slow smooth animation
+      viewport={{ once: true, amount: 0.2 }} // trigger only once, 20% visible
+    >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-start gap-10 lg:gap-20">
         {/* Right: CEO info */}
         <div className="md:w-1/3 flex flex-col mt-8 md:mt-10">
           <div className="flex gap-2">
             <img
-              src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=774&auto=format&fit=crop"
               alt="CEO"
               className="rounded-md mb-4 w-12 h-12 object-cover"
             />
-            <div className="">
-              <h3 className="text-xl font-semibold text-gray-800 ">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800">
                 Ayrton Senna
               </h3>
               <p className="text-gray-600 text-sm mb-4">
@@ -105,7 +111,7 @@ export default function AboutSection() {
               <li
                 key={item.id}
                 onClick={() => setSelectedId(item.id)}
-                className={`flex items-center justify-between cursor-pointer p-4 rounded-lg transition ${
+                className={`flex items-center justify-between cursor-pointer p-4 rounded-lg transition-all duration-500 ${
                   selectedId === item.id
                     ? "bg-blue-100 text-blue-700"
                     : "bg-white text-gray-800 hover:bg-gray-100"
@@ -114,8 +120,9 @@ export default function AboutSection() {
                 <div className="flex items-center gap-4">
                   {selectedId === item.id && (
                     <motion.span
-                      initial={{ opacity: 0, x: -10 }}
+                      initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
                       className="text-blue-700 font-bold"
                     >
                       ➔
@@ -132,17 +139,23 @@ export default function AboutSection() {
             ))}
           </ul>
 
-          {selectedItem && (
-            <div className="w-full h-64 relative rounded-lg overflow-hidden">
-              <img
-                src={selectedItem.image}
-                alt={selectedItem.title}
+          {/* Smooth fade image */}
+          <div className="w-full h-64 relative rounded-lg overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={selectedItem?.id}
+                src={selectedItem?.image}
+                alt={selectedItem?.title}
                 className="w-full h-full object-cover rounded-lg"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.2 }} // slower fade
               />
-            </div>
-          )}
+            </AnimatePresence>
+          </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
