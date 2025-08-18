@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { motion } from "framer-motion";
 import {
   FaFacebookF,
@@ -8,12 +7,18 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 
-const fadeUp = {
+import type { Variants } from "framer-motion";
+
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
-  visible: (delay = 0) => ({
+  visible: (custom: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut", delay },
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+      delay: custom,
+    },
   }),
 };
 
