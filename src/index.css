@@ -20,7 +20,7 @@ body {
   background-clip: text;
 
   /* Set background image */
-  background-image: url("texture1.jpeg"); /* Path to your image */
+  background-image: url("/texture1.jpeg"); /* Path to your image */
   background-size: cover; /* Make the image cover text */
   background-position: center; /* Center the texture */
 

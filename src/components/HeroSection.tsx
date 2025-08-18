@@ -40,7 +40,7 @@ function EngineModel({ path }: { path: string }) {
 
     const scale = scaleFactor / Math.max(size.x, size.y, size.z);
     clonedScene.scale.set(scale, scale, scale);
-    clonedScene.position.set(0, (-size.y * scale) / 2, 0);
+    box.getCenter(clonedScene.position).multiplyScalar(-scale);
   }, [scene, scaleFactor]);
 
   return (
